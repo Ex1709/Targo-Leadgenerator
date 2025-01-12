@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Targo B2B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1A202C; /* Dark background */
+            color: #E2E8F0; /* Light text */
+        }
+        .card {
+            background-color: #2D3748; /* Card background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .btn {
+            background-color: #4A5568;
+            color: #E2E8F0;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: #5A6675;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center h-screen">
+    <div class="card w-full max-w-md text-center">
+        <img src="/logo.png" alt="Targo Logo" class="mx-auto mb-6 w-24">
+        <h1 class="text-3xl font-bold mb-6">Login to Targo B2B</h1>
+        <% if (typeof error !== 'undefined') { %>
+            <p class="text-red-400 mb-4"><%= error %></p>
+        <% } %>
+        <form action="/login" method="POST" class="space-y-6">
+            <div>
+                <label for="username" class="block text-left text-gray-400 mb-2">Username</label>
+                <input type="text" id="username" name="username" required class="w-full p-3 rounded bg-gray-700 text-gray-300 border border-gray-600">
+            </div>
+            <div>
+                <label for="password" class="block text-left text-gray-400 mb-2">Password</label>
+                <input type="password" id="password" name="password" required class="w-full p-3 rounded bg-gray-700 text-gray-300 border border-gray-600">
+            </div>
+            <button type="submit" class="btn w-full">Login</button>
+        </form>
+        <p class="text-gray-500 mt-6 text-sm">© Targo B2B 2024. All rights reserved.</p>
+    </div>
+</body>
+</html>

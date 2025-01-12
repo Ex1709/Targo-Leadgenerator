@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Targo B2B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1A202C;
+            color: #E2E8F0;
+        }
+        .card {
+            background-color: #2D3748;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            background-color: #4A5568;
+            color: #E2E8F0;
+            text-align: center;
+            padding: 8px 14px;
+            font-size: 14px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #5A6675;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #2D3748;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <header class="text-center mb-10">
+        <img src="/logo.png" alt="Targo Logo" class="mx-auto mb-6 w-24">
+        <h1 class="text-4xl font-bold">Targo B2B Admin Panel</h1>
+        <p class="text-gray-400 mt-2">Manage users and subscriptions</p>
+    </header>
+
+    <!-- User Creation Form -->
+    <section class="card mb-10 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6">Create New User</h2>
+        <form action="/tadmin" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-gray-400 mb-1">CVR Number</label>
+                <input type="text" name="cvrNumber" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Email</label>
+                <input type="email" name="email" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Username</label>
+                <input type="text" name="username" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Phone Number</label>
+                <input type="text" name="phoneNumber" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Password</label>
+                <input type="password" name="password" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Access From</label>
+                <input type="date" name="accessFrom" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div>
+                <label class="block text-gray-400 mb-1">Access To</label>
+                <input type="date" name="accessTo" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-gray-300">
+            </div>
+            <div class="col-span-full">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded">
+                    Create User
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Users Table -->
+    <section class="max-w-6xl mx-auto">
+        <table class="w-full bg-gray-800 rounded-lg shadow-lg text-gray-200">
+            <thead>
+                <tr class="bg-gray-700">
+                    <th class="p-3 text-left">CVR</th>
+                    <th class="p-3 text-left">Email</th>
+                    <th class="p-3 text-left">Username</th>
+                    <th class="p-3 text-left">Access From</th>
+                    <th class="p-3 text-left">Access To</th>
+                    <th class="p-3 text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                <tr class="border-t border-gray-700 hover:bg-gray-700">
+                    <td class="p-3"><%= user.cvrNumber %></td>
+                    <td class="p-3"><%= user.email %></td>
+                    <td class="p-3"><%= user.username %></td>
+                    <td class="p-3"><%= user.accessTime && user.accessTime.from ? new Date(user.accessTime.from).toDateString() : 'N/A' %></td>
+                    <td class="p-3"><%= user.accessTime && user.accessTime.to ? new Date(user.accessTime.to).toDateString() : 'N/A' %></td>
+                    <td class="p-3 text-center">
+                        <form action="/tadmin/revoke" method="POST" class="inline">
+                            <input type="hidden" name="userId" value="<%= user._id %>">
+                            <button type="submit" class="btn bg-green-600 hover:bg-green-500">Revoke Ban</button>
+                        </form>
+                        <form action="/tadmin/ban" method="POST" class="inline">
+                            <input type="hidden" name="userId" value="<%= user._id %>">
+                            <button type="submit" class="btn bg-red-600 hover:bg-red-500">Ban</button>
+                        </form>
+                        <form action="/tadmin/delete" method="POST" class="inline">
+                            <input type="hidden" name="userId" value="<%= user._id %>">
+                            <button type="submit" class="btn bg-gray-600 hover:bg-gray-500">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
