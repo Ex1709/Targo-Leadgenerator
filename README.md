@@ -1,37 +1,39 @@
-🔎 Targo Lead Generator – AI-Powered B2B Prospecting Tool
-Targo is a powerful lead generation tool that automatically identifies and qualifies newly registered companies in Denmark using official CVR data. It enriches leads with smart AI-generated insights to help salespeople, marketers, and B2B service providers target the right businesses at the right time.
+# 🚀 Targo Lead Generator
 
-🚀 Features
-🏢 Real-time scraping of newly registered Danish companies via the CVR API
+**Automated AI-Powered Lead Generation for Danish Businesses**
 
-🧠 AI-based analysis of company descriptions for relevance and quality
+---
 
-🗂️ Categorization and scoring of leads based on industry, location, and more
+## 🔍 What is Targo?
 
-📥 Export leads to CSV or integrate into CRM pipelines
+Targo is a smart lead generation tool designed to help sales teams, marketers, and B2B service providers discover and qualify **newly registered companies in Denmark** — fast and effortlessly.
 
-🌐 Clean frontend built with modern web stack
+By combining official CVR company data with cutting-edge AI, Targo provides rich insights that help you target the right leads at exactly the right time.
 
-🎯 Ideal For
-Digital marketing agencies
+---
 
-Accounting firms
+## ✨ Key Features
 
-SaaS startups
+- 🏢 **Real-time discovery:** Automatically fetches new company registrations from Denmark’s official CVR API  
+- 🤖 **AI-powered analysis:** Uses OpenAI GPT to evaluate company profiles and generate meaningful insights  
+- 📊 **Lead scoring & categorization:** Prioritizes leads by industry, location, and business activity  
+- 📥 **Easy exports:** Download lead lists in CSV format or integrate with your CRM workflow  
+- 🎨 **Modern UI:** Responsive and clean frontend built with Tailwind CSS and HTML  
 
-B2B service providers
+---
 
-Sales teams looking to scale outreach
+## 🎯 Who Should Use Targo?
 
-📦 Tech Stack
-Python (backend & data handling)
+- Digital marketing agencies looking for fresh B2B prospects  
+- Accounting and consulting firms targeting new startups  
+- SaaS companies hunting for early adopters  
+- Sales teams aiming to automate lead sourcing and qualification  
 
-OpenAI API (for GPT-based analysis)
+---
 
-Tailwind CSS / HTML (frontend)
+## 🚀 Getting Started
 
-Hosted via Vercel or similar
-
-💡 Why Use Targo?
-Manual lead sourcing is slow and inefficient. Targo automates the process of finding newly registered, relevant companies in seconds — and enriches each lead with insights that actually help close deals.
-
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/Ex1709/Targo-Leadgenerator.git
+   cd Targo-Leadgenerator
