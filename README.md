@@ -12,6 +12,14 @@ By combining official CVR company data with cutting-edge AI, Targo provides rich
 
 ---
 
+## 🎥 Demo
+
+[![Targo Lead Generator Demo](Forside_-_Targo_1.png)](2l4cei.mp4)
+
+*Click the image above to watch the real showcase video.*
+
+---
+
 ## ✨ Key Features
 
 - 🏢 **Real-time discovery:** Automatically fetches new company registrations from Denmark’s official CVR API  
