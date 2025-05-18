@@ -14,7 +14,7 @@ By combining official CVR company data with cutting-edge AI, Targo provides rich
 
 ## 🎥 Demo
 
-[![Targo Lead Generator Demo](Forside_-_Targo_1.png)](2l4cei.mp4)
+[![Targo Lead Generator Demo](Forside_-_Targo_1.png)](https://streamable.com/07otx5)
 
 *Click the image above to watch the real showcase video.*
 
