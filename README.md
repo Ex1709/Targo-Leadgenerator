@@ -43,5 +43,5 @@ By combining official CVR company data with cutting-edge AI, Targo provides rich
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/Ex1709/Targo-Leadgenerator.git
+   git clone https://github.com/rlyngby/Targo-Leadgenerator.git
    cd Targo-Leadgenerator
